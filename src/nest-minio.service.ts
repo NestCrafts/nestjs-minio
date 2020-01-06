@@ -16,7 +16,7 @@ export class NestMinioService implements INestMinioService {
     @Inject(NEST_MINIO_OPTIONS) private _NestMinioOptions: NestMinioOptions,
   ) {
     this.logger = new Logger('NestMinioService');
-    this.logger.log(`Options: ${JSON.stringify(this._NestMinioOptions)}`);
+    // this.logger.log(`Options: ${JSON.stringify(this._NestMinioOptions)}`);
   }
 
   getMinio() {
