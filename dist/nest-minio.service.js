@@ -20,7 +20,7 @@ let NestMinioService = class NestMinioService {
     constructor(_NestMinioOptions) {
         this._NestMinioOptions = _NestMinioOptions;
         this.logger = new common_1.Logger('NestMinioService');
-        this.logger.log(`Options: ${JSON.stringify(this._NestMinioOptions)}`);
+        // this.logger.log(`Options: ${JSON.stringify(this._NestMinioOptions)}`);
     }
     getMinio() {
         if (!this._minioConnection) {

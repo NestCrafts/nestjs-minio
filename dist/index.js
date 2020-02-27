@@ -5,3 +5,4 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./nest-minio.service"));
 __export(require("./nest-minio.module"));
+__export(require("./constants"));
