@@ -6,9 +6,9 @@
 <p align="center">Minio Module for Nest framework</p>
 
 <p align="center">
-<a href="https://www.npmjs.com/package/nest-minio"><img src="https://img.shields.io/npm/v/nest-minio" alt="NPM Version" /></a>
-<a href="https://img.shields.io/npm/l/nest-minio"><img src="https://img.shields.io/npm/l/nest-raven.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/package/nest-minio"><img src="https://img.shields.io/npm/dm/nest-minio" alt="NPM Downloads" /></a>
+<a href="https://www.npmjs.com/package/nestjs-minio"><img src="https://img.shields.io/npm/v/nestjs-minio" alt="NPM Version" /></a>
+<a href="https://img.shields.io/npm/l/nestjs-minio"><img src="https://img.shields.io/npm/l/nestjs-minio" alt="Package License" /></a>
+<a href="https://www.npmjs.com/package/nestjs-minio"><img src="https://img.shields.io/npm/dw/nestjs-minio" alt="NPM Downloads" /></a>
 
 </p>
 
