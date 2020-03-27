@@ -24,17 +24,16 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@nestjs/common": "^6.11.8"
+    "@nestjs/common": "^7.0.6"
   },
   "dependencies": {
-    "minio": "^7.0.14"
+    "minio": "^7.0.15"
   },
   "devDependencies": {
-    "@nestjs/common": "^6.11.8",
-    "@nestjs/core": "^6.11.8",
-    "@nestjs/platform-express": "^6.11.8",
-    "@nestjs/platform-express": "^7.0.0",
-  "@nestjs/testing": "7.0.0",
+    "@nestjs/common": "^7.0.6",
+    "@nestjs/core": "^7.0.6",
+    "@nestjs/platform-express": "^7.0.6",
+    "@nestjs/testing": "7.0.6",
     "@types/express": "4.17.3",
     "@types/jest": "25.1.4",
     "@types/node": "13.9.4",
