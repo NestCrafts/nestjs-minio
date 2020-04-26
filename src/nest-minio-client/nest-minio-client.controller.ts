@@ -31,7 +31,7 @@ export class NestMinioClientController {
       'app.zip',
       file,
       metaData,
-      function(err, etag) {
+      function (err, etag) {
         if (err) {
           return console.log(err);
         }
