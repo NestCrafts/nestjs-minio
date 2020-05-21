@@ -3082,9 +3082,9 @@ minimist@^1.1.1, minimist@^1.2.0, minimist@^1.2.5:
   integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
 
 minio@^7.0.15:
-  version "7.0.15"
-  resolved "https://registry.yarnpkg.com/minio/-/minio-7.0.15.tgz#1fa2b22c2def6cedc0afaa236d60e0d36509f99a"
-  integrity sha512-ucZnLNUQgQV+/S8FfyO40yM/X8gVcw8WRcoGH5WWk4xQwKAp4K/xjooHwkV0Oc3Iu/6WZDnGQ+Nf4I4XIzl9eA==
+  version "7.0.16"
+  resolved "https://registry.yarnpkg.com/minio/-/minio-7.0.16.tgz#1bbf334bdfe35214a9c199768f94f11b86b04063"
+  integrity sha512-OgCJ3XVMzukSqoMFBiBDeyz30BxYTBM9yRLVRBCExTb+QKVxJh4DnUOS2/zw7OPeDyXXEvYSzDvg4FkCf1Cxyw==
   dependencies:
     async "^3.1.0"
     block-stream2 "^2.0.0"
