@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.connectionFactory = void 0;
 const constants_1 = require("./constants");
 const nest_minio_service_1 = require("./nest-minio.service");
 exports.connectionFactory = {

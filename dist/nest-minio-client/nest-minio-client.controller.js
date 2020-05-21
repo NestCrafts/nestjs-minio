@@ -12,6 +12,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.NestMinioClientController = void 0;
 /**
  *  NestMinioClientController is a testing controller that verifies that
  *  NestMinioModule was generated properly.
@@ -25,35 +26,38 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 const common_1 = require("@nestjs/common");
 const constants_1 = require("../constants");
-let NestMinioClientController = class NestMinioClientController {
-    constructor(minioClient) {
-        this.minioClient = minioClient;
-    }
-    index() {
-        const file = '/tmp/app.zip';
-        const metaData = {
-            'Content-Type': 'application/octet-stream',
-            'X-Amz-Meta-Testing': 1234,
-            example: 5678,
-        };
-        // Using fPutObject API upload your file to the bucket europetrip.
-        this.minioClient.fPutObject('europetripxxx3', 'app.zip', file, metaData, function (err, etag) {
-            if (err) {
-                return console.log(err);
-            }
-            console.log('File uploaded successfully.');
-        });
-    }
-};
-__decorate([
-    common_1.Get(),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], NestMinioClientController.prototype, "index", null);
-NestMinioClientController = __decorate([
-    common_1.Controller(),
-    __param(0, common_1.Inject(constants_1.MINIO_CONNECTION)),
-    __metadata("design:paramtypes", [Object])
-], NestMinioClientController);
+let NestMinioClientController = /** @class */ (() => {
+    let NestMinioClientController = class NestMinioClientController {
+        constructor(minioClient) {
+            this.minioClient = minioClient;
+        }
+        index() {
+            const file = '/tmp/app.zip';
+            const metaData = {
+                'Content-Type': 'application/octet-stream',
+                'X-Amz-Meta-Testing': 1234,
+                example: 5678,
+            };
+            // Using fPutObject API upload your file to the bucket europetrip.
+            this.minioClient.fPutObject('europetripxxx3', 'app.zip', file, metaData, function (err, etag) {
+                if (err) {
+                    return console.log(err);
+                }
+                console.log('File uploaded successfully.');
+            });
+        }
+    };
+    __decorate([
+        common_1.Get(),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], NestMinioClientController.prototype, "index", null);
+    NestMinioClientController = __decorate([
+        common_1.Controller(),
+        __param(0, common_1.Inject(constants_1.MINIO_CONNECTION)),
+        __metadata("design:paramtypes", [Object])
+    ], NestMinioClientController);
+    return NestMinioClientController;
+})();
 exports.NestMinioClientController = NestMinioClientController;

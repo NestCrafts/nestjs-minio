@@ -12,26 +12,30 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.NestMinioService = void 0;
 // tslint:disable: variable-name
 const common_1 = require("@nestjs/common");
 const constants_1 = require("./constants");
 const Minio = require("minio");
-let NestMinioService = class NestMinioService {
-    constructor(_NestMinioOptions) {
-        this._NestMinioOptions = _NestMinioOptions;
-        this.logger = new common_1.Logger('NestMinioService');
-        // this.logger.log(`Options: ${JSON.stringify(this._NestMinioOptions)}`);
-    }
-    getMinio() {
-        if (!this._minioConnection) {
-            this._minioConnection = new Minio.Client(this._NestMinioOptions);
+let NestMinioService = /** @class */ (() => {
+    let NestMinioService = class NestMinioService {
+        constructor(_NestMinioOptions) {
+            this._NestMinioOptions = _NestMinioOptions;
+            this.logger = new common_1.Logger('NestMinioService');
+            // this.logger.log(`Options: ${JSON.stringify(this._NestMinioOptions)}`);
         }
-        return this._minioConnection;
-    }
-};
-NestMinioService = __decorate([
-    common_1.Injectable(),
-    __param(0, common_1.Inject(constants_1.NEST_MINIO_OPTIONS)),
-    __metadata("design:paramtypes", [Object])
-], NestMinioService);
+        getMinio() {
+            if (!this._minioConnection) {
+                this._minioConnection = new Minio.Client(this._NestMinioOptions);
+            }
+            return this._minioConnection;
+        }
+    };
+    NestMinioService = __decorate([
+        common_1.Injectable(),
+        __param(0, common_1.Inject(constants_1.NEST_MINIO_OPTIONS)),
+        __metadata("design:paramtypes", [Object])
+    ], NestMinioService);
+    return NestMinioService;
+})();
 exports.NestMinioService = NestMinioService;
