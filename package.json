@@ -24,7 +24,7 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@nestjs/common": "^7.0.13"
+    "@nestjs/common": ">=7.0.13"
   },
   "dependencies": {
     "minio": "^7.0.16"
