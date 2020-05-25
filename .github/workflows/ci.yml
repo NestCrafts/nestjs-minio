@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 13.x]
+        node-version: [8.x, 10.x, 12.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -17,9 +17,8 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Install dependencies
-    - run: yarn 
-    - name: Build
-    - run: yarn build
+    - run: yarn install
+    - run: yarn run build
       env:
         CI: true
+
