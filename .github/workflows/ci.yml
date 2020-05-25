@@ -4,12 +4,11 @@ on: [push]
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x]
+        os: [macos-latest, ubuntu-latest, windows-latest]
+        node-version: [10.x, 12.x, 13.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -17,8 +16,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: yarn install
-    - run: yarn run build
+    - run: yarn
+    - run: yarn build
+    - run: yarn test
       env:
         CI: true
 
