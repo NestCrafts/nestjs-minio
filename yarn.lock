@@ -482,15 +482,15 @@
     uuid "8.0.0"
 
 "@nestjs/platform-express@^7.0.13":
-  version "7.0.13"
-  resolved "https://registry.yarnpkg.com/@nestjs/platform-express/-/platform-express-7.0.13.tgz#b324203de25fb2de5719fc95c71d5f17396f562c"
-  integrity sha512-OT0YLIpgXkTkx+HWAZ5dFDSHsllrymlR9D8TaRntGX3TcvyQ2D05MK6yTuKiSUFLfSynoPYNc07lGAVuf9OBKA==
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/platform-express/-/platform-express-7.1.0.tgz#3bcad75b4d71026eb1c7c2a09c744f43d6917569"
+  integrity sha512-1gmANLBJO+X/384s8ZbwxYvpm6zvZdWDKBdSvgsHf7iXUgWFtEAq+gi9+WrOVRuieuTIWrHex9qfpsE/xP3Cjw==
   dependencies:
     body-parser "1.19.0"
     cors "2.8.5"
     express "4.17.1"
     multer "1.4.2"
-    tslib "1.11.2"
+    tslib "2.0.0"
 
 "@nestjs/testing@7.0.13":
   version "7.0.13"
