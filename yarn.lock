@@ -468,10 +468,10 @@
     tslib "2.0.0"
     uuid "8.0.0"
 
-"@nestjs/core@^7.0.13":
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-7.1.1.tgz#ff1fef34ed9c81d8a58ad584a928fb465eb85d1a"
-  integrity sha512-YOMyjWAOtYy1pzz4OsEKSujLKEeY0YML3HPekQPpC2fcgWHBtt0CMJ9RK4385FSltcFW13PgHUzLmcqUgrJTNQ==
+"@nestjs/core@^7.1.2":
+  version "7.1.2"
+  resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-7.1.2.tgz#a12fb9c8f55625b06cbb0c68a91b18bc8a97e693"
+  integrity sha512-M2QicUsKBdD4JSld8JpXTsL799kpeAf9lIdea5MrhxDCY5eSPbx1AaA7hbFuz25nkyM/NIs1wPaqyrt6KtSfqA==
   dependencies:
     "@nuxtjs/opencollective" "0.2.2"
     fast-safe-stringify "2.0.7"
@@ -481,10 +481,10 @@
     tslib "2.0.0"
     uuid "8.0.0"
 
-"@nestjs/platform-express@^7.0.13":
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/@nestjs/platform-express/-/platform-express-7.1.1.tgz#25a5b2c84adf87da5a68c74fdbe1cc28567a39d9"
-  integrity sha512-g8XNSFTtzsABelQ0uBveCeh6Jf7mUDfGHOXDybaEP//tM+cLU2vbzDYJSHaL68PfGCbhtvzaMiK9ezIWdW9rWg==
+"@nestjs/platform-express@^7.1.2":
+  version "7.1.2"
+  resolved "https://registry.yarnpkg.com/@nestjs/platform-express/-/platform-express-7.1.2.tgz#4524a56228e3a3671892bcc44f3263022068469c"
+  integrity sha512-GkpuBReOV6mOqkgQpku0PsOwZS0Xbs3ErRlRKK5vIX+Wsl9Y9YUiaW4jRgbtkN8mWrT/n88zMmIbjagenPXkQw==
   dependencies:
     body-parser "1.19.0"
     cors "2.8.5"
@@ -492,10 +492,10 @@
     multer "1.4.2"
     tslib "2.0.0"
 
-"@nestjs/testing@7.1.1":
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/@nestjs/testing/-/testing-7.1.1.tgz#6286568724a5f567ae824c5592e63c029ce7e0c6"
-  integrity sha512-J/cdpmUUikYoIwat2LY5eE6ebKDHfcOJXyzDN+7BU8pTINik3Tu6UlguR2C/OnmE6nRCw63yOSuTuFeAWuVa4w==
+"@nestjs/testing@7.1.2":
+  version "7.1.2"
+  resolved "https://registry.yarnpkg.com/@nestjs/testing/-/testing-7.1.2.tgz#0f253bbbcbe664285b511bc76a6e1c4563c32894"
+  integrity sha512-S/ruJRKIyO71naguaXxBsTcac94qnDv2wqagGv9Q3HDjH/Z2wLIHBB5zSdZg0p+rFN2U1/dFkTw5Ok3lp8kixA==
   dependencies:
     optional "0.1.4"
     tslib "2.0.0"
@@ -645,10 +645,15 @@
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-2.0.2.tgz#857a118d8634c84bba7ae14088e4508490cd5da5"
   integrity sha512-4kPlzbljFcsttWEq6aBW0OZe6BDajAmyvr2xknBG92tejQnvdGtT9+kXSZ580DqpxY9qG2xeQVF9Dq0ymUTo5Q==
 
-"@types/node@*", "@types/node@14.0.5":
+"@types/node@*":
   version "14.0.5"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.5.tgz#3d03acd3b3414cf67faf999aed11682ed121f22b"
   integrity sha512-90hiq6/VqtQgX8Sp0EzeIsv3r+ellbGj4URKj5j30tLlZvRUpnAe9YbYnjl3pJM93GyXU0tghHhvXHq+5rnCKA==
+
+"@types/node@14.0.6":
+  version "14.0.6"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.6.tgz#f9e178b2da31a4b0ec60b64649e244c31ce18daf"
+  integrity sha512-FbNmu4F67d3oZMWBV6Y4MaPER+0EpE9eIYf2yaHhCWovc1dlXCZkqGX4NLHfVVr6umt20TNBdRzrNJIzIKfdbw==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -4331,10 +4336,10 @@ tr46@^2.0.2:
   dependencies:
     punycode "^2.1.1"
 
-ts-jest@26.0.0:
-  version "26.0.0"
-  resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-26.0.0.tgz#957b802978249aaf74180b9dcb17b4fd787ad6f3"
-  integrity sha512-eBpWH65mGgzobuw7UZy+uPP9lwu+tPp60o324ASRX4Ijg8UC5dl2zcge4kkmqr2Zeuk9FwIjvCTOPuNMEyGWWw==
+ts-jest@26.1.0:
+  version "26.1.0"
+  resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-26.1.0.tgz#e9070fc97b3ea5557a48b67c631c74eb35e15417"
+  integrity sha512-JbhQdyDMYN5nfKXaAwCIyaWLGwevcT2/dbqRPsQeh6NZPUuXjZQZEfeLb75tz0ubCIgEELNm6xAzTe5NXs5Y4Q==
   dependencies:
     bs-logger "0.x"
     buffer-from "1.x"
