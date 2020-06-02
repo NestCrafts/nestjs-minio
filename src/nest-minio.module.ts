@@ -33,6 +33,7 @@ export class NestMinioModule {
     return {
       module: NestMinioModule,
       providers: [...this.createProviders(options)],
+      imports: options.imports || [],
     };
   }
 
