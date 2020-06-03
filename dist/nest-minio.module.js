@@ -41,6 +41,7 @@ let NestMinioModule = /** @class */ (() => {
             return {
                 module: NestMinioModule_1,
                 providers: [...this.createProviders(options)],
+                imports: options.imports || [],
             };
         }
         static createProviders(options) {
