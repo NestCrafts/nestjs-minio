@@ -14,6 +14,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var NestMinioModule_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NestMinioModule = void 0;
 const common_1 = require("@nestjs/common");
@@ -21,64 +22,60 @@ const nest_minio_service_1 = require("./nest-minio.service");
 const constants_1 = require("./constants");
 const nest_minio_providers_1 = require("./nest-minio.providers");
 const nest_minio_connection_provider_1 = require("./nest-minio-connection.provider");
-let NestMinioModule = /** @class */ (() => {
-    var NestMinioModule_1;
-    let NestMinioModule = NestMinioModule_1 = class NestMinioModule {
-        /**
-         * Registers a configured NestMinio Module for import into the current module
-         */
-        static register(options) {
-            return {
-                module: NestMinioModule_1,
-                providers: nest_minio_providers_1.createNestMinioProviders(options),
-            };
+let NestMinioModule = NestMinioModule_1 = class NestMinioModule {
+    /**
+     * Registers a configured NestMinio Module for import into the current module
+     */
+    static register(options) {
+        return {
+            module: NestMinioModule_1,
+            providers: nest_minio_providers_1.createNestMinioProviders(options),
+        };
+    }
+    /**
+     * Registers a configured NestMinio Module for import into the current module
+     * using dynamic options (factory, etc)
+     */
+    static registerAsync(options) {
+        return {
+            module: NestMinioModule_1,
+            providers: [...this.createProviders(options)],
+            imports: options.imports || [],
+        };
+    }
+    static createProviders(options) {
+        if (options.useExisting || options.useFactory) {
+            return [this.createOptionsProvider(options)];
         }
-        /**
-         * Registers a configured NestMinio Module for import into the current module
-         * using dynamic options (factory, etc)
-         */
-        static registerAsync(options) {
-            return {
-                module: NestMinioModule_1,
-                providers: [...this.createProviders(options)],
-                imports: options.imports || [],
-            };
-        }
-        static createProviders(options) {
-            if (options.useExisting || options.useFactory) {
-                return [this.createOptionsProvider(options)];
-            }
-            return [
-                this.createOptionsProvider(options),
-                {
-                    provide: options.useClass,
-                    useClass: options.useClass,
-                },
-            ];
-        }
-        static createOptionsProvider(options) {
-            if (options.useFactory) {
-                return {
-                    provide: constants_1.NEST_MINIO_OPTIONS,
-                    useFactory: options.useFactory,
-                    inject: options.inject || [],
-                };
-            }
-            // For useExisting...
+        return [
+            this.createOptionsProvider(options),
+            {
+                provide: options.useClass,
+                useClass: options.useClass,
+            },
+        ];
+    }
+    static createOptionsProvider(options) {
+        if (options.useFactory) {
             return {
                 provide: constants_1.NEST_MINIO_OPTIONS,
-                useFactory: (optionsFactory) => __awaiter(this, void 0, void 0, function* () { return yield optionsFactory.createNestMinioOptions(); }),
-                inject: [options.useExisting || options.useClass],
+                useFactory: options.useFactory,
+                inject: options.inject || [],
             };
         }
-    };
-    NestMinioModule = NestMinioModule_1 = __decorate([
-        common_1.Global(),
-        common_1.Module({
-            providers: [nest_minio_service_1.NestMinioService, nest_minio_connection_provider_1.connectionFactory],
-            exports: [nest_minio_service_1.NestMinioService, nest_minio_connection_provider_1.connectionFactory],
-        })
-    ], NestMinioModule);
-    return NestMinioModule;
-})();
+        // For useExisting...
+        return {
+            provide: constants_1.NEST_MINIO_OPTIONS,
+            useFactory: (optionsFactory) => __awaiter(this, void 0, void 0, function* () { return yield optionsFactory.createNestMinioOptions(); }),
+            inject: [options.useExisting || options.useClass],
+        };
+    }
+};
+NestMinioModule = NestMinioModule_1 = __decorate([
+    common_1.Global(),
+    common_1.Module({
+        providers: [nest_minio_service_1.NestMinioService, nest_minio_connection_provider_1.connectionFactory],
+        exports: [nest_minio_service_1.NestMinioService, nest_minio_connection_provider_1.connectionFactory],
+    })
+], NestMinioModule);
 exports.NestMinioModule = NestMinioModule;
