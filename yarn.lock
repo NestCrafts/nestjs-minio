@@ -458,9 +458,9 @@
     chalk "^4.0.0"
 
 "@nestjs/common@^7.0.13":
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-7.3.0.tgz#7e1ca6ebc8da54f9cf0ed81e84e471ecb6a7d45d"
-  integrity sha512-wkqrQBrqqCIlxxnIUkwzTcBcCjYFa+LPphqS/Pjn4NUUS1+k8X+T0GD+E9qrhkf6oNnQF2YnufuFPNcYdsFYYw==
+  version "7.3.1"
+  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-7.3.1.tgz#9ed4ccf0086c308985c785fb9ac0c9265596d7e6"
+  integrity sha512-zrd/C+g2QVg2ebVN22Bs8U2Je9aHDWcysNfZFSGpqc+rLRjqDr0ixr1GL3WEhQSyxAm4YRa0yvZiiFicbVAV7Q==
   dependencies:
     axios "0.19.2"
     cli-color "2.0.0"
