@@ -1,6 +1,6 @@
 {
   "name": "nestjs-minio",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "Minio object storage with nestjs",
   "author": "Rubin Bhandari",
   "license": "MIT",
