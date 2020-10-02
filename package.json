@@ -6,7 +6,6 @@
 "license": "MIT",
 "main": "dist/index.js",
 "scripts": {
-"start:dev": "tsc-watch -p tsconfig.build.json --onSuccess \"node dist/main.js\"",
 "build": "tsc",
 "prepare": "npm run build",
 "format": "prettier --write \"src/**/*.ts\"",
@@ -44,7 +43,6 @@
 "supertest": "5.0.0",
 "ts-jest": "26.4.1",
 "ts-node": "9.0.0",
-"tsc-watch": "4.2.9",
 "tsconfig-paths": "3.9.0",
 "tslint": "6.1.3",
 "typescript": "4.0.3"
