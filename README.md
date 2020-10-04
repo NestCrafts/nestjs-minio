@@ -33,13 +33,6 @@ $ npm i --save nestjs-minio
 ```
 
 
-## Download from NPM
-
-```sh
-npm install --save nestjs-minio
-```
-
-
 ## Initialize MinIO Client
 
 You need five items in order to connect to MinIO object storage server.
