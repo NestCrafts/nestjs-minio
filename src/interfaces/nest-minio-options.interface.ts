@@ -1,3 +1,3 @@
-// tslint:disable: no-empty-interface
+import {ClientOptions} from 'minio'
 
-export interface NestMinioOptions {}
+export type NestMinioOptions = ClientOptions
