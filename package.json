@@ -1,6 +1,6 @@
 {
   "name": "nestjs-minio",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "description": "Minio object storage with nestjs",
   "author": "Rubin Bhandari",
   "license": "MIT",
@@ -32,10 +32,10 @@
   },
   "devDependencies": {
     "@compodoc/compodoc": "^1.1.11",
-    "@nestjs/common": "^7.0.13",
-    "@nestjs/core": "^7.6.11",
-    "@nestjs/platform-express": "^7.6.11",
-    "@nestjs/testing": "7.6.11",
+    "@nestjs/common": "^7.6.12",
+    "@nestjs/core": "^7.6.12",
+    "@nestjs/platform-express": "^7.6.12",
+    "@nestjs/testing": "7.6.12",
     "@types/express": "4.17.11",
     "@types/jest": "26.0.20",
     "@types/supertest": "2.0.10",
