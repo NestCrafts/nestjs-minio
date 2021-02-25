@@ -86,10 +86,11 @@ We will use the MinIO server running at https://play.min.io in this example. Fee
 
 import { Controller, Get, Inject } from '@nestjs/common';
 import { MINIO_CONNECTION } from '../constants';
+import {Client} from 'minio';
 
 @Controller()
 export class NestMinioClientController {
-  constructor(@Inject(MINIO_CONNECTION) private readonly minioClient) {}
+  constructor(@Inject(MINIO_CONNECTION) private readonly minioClient: Client) {}
 
   @Get()
   index() {
@@ -118,4 +119,3 @@ export class NestMinioClientController {
 
 
 ```
-

@@ -10,16 +10,12 @@ interface INestMinioService {
 
 @Injectable()
 export class NestMinioService implements INestMinioService {
-  private readonly logger: Logger;
   private _minioConnection: any;
   constructor(
     @Inject(NEST_MINIO_OPTIONS) private _NestMinioOptions: NestMinioOptions,
-  ) {
-    this.logger = new Logger('NestMinioService');
-    // this.logger.log(`Options: ${JSON.stringify(this._NestMinioOptions)}`);
-  }
+  ) {}
 
-  getMinio() {
+  getMinio(): Minio.Client {
     if (!this._minioConnection) {
       this._minioConnection = new Minio.Client(this._NestMinioOptions);
     }
