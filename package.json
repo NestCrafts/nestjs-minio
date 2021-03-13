@@ -27,7 +27,6 @@
     "@nestjs/common": ">7.0.0"
   },
   "dependencies": {
-    "@types/minio": "^7.0.7",
     "minio": "^7.0.18"
   },
   "devDependencies": {
@@ -38,6 +37,7 @@
     "@nestjs/testing": "7.6.13",
     "@types/express": "4.17.11",
     "@types/jest": "26.0.20",
+    "@types/minio": "^7.0.7",
     "@types/supertest": "2.0.10",
     "@typescript-eslint/eslint-plugin": "^4.15.1",
     "eslint": "^7.20.0",
