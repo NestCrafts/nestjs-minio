@@ -67,7 +67,6 @@ import { NestMinioModule } from '../nest-minio.module';
 })
 export class NestMinioClientModule {}
 
-});
 ```
 Then you can use it in the controller or service by injecting it in the controller as:
 
