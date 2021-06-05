@@ -20,7 +20,7 @@
 
 
 ## Description
-This's a [nest-minio](https://github.com/rubiin/nest-minio) module for [Nest](https://github.com/nestjs/nest).
+This's a [nest-minio](https://github.com/rubiin/nestjs-minio) module for [Nest](https://github.com/nestjs/nest).
 This quickstart guide will show you how to install the client SDK and execute an example JavaScript program. For a complete list of APIs and examples, please take a look at the [JavaScript Client API Reference](https://docs.min.io/docs/javascript-client-api-reference) documentation.
 
 This document assumes that you have a working [nodejs](http://nodejs.org/) setup in place.
