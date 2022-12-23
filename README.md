@@ -56,7 +56,9 @@ import { NestMinioModule } from '../nest-minio.module';
 @Module({
   controllers: [NestMinioClientController],
   imports: [
-    NestMinioModule.register({
+    NestMinioModule.register(
+      isGlobal: true,
+      {
       endPoint: 'play.min.io',
       port: 9000,
       useSSL: true,
@@ -67,7 +69,6 @@ import { NestMinioModule } from '../nest-minio.module';
 })
 export class NestMinioClientModule {}
 
-});
 ```
 Then you can use it in the controller or service by injecting it in the controller as:
 
@@ -86,11 +87,15 @@ We will use the MinIO server running at https://play.min.io in this example. Fee
 
 import { Controller, Get, Inject } from '@nestjs/common';
 import { MINIO_CONNECTION } from '../constants';
-import {Client} from 'minio';
+import {Client, InjectMinio} from 'minio';
 
 @Controller()
 export class NestMinioClientController {
+ // use inject token
   constructor(@Inject(MINIO_CONNECTION) private readonly minioClient: Client) {}
+
+  // or use inject decorator
+  // constructor(@InjectMinio() private readonly minioClient: Client) {}
 
   @Get()
   index() {
