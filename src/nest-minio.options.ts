@@ -1,3 +1,3 @@
-import {ClientOptions} from 'minio'
+import { ClientOptions } from 'minio';
 
-export type NestMinioOptions = ClientOptions
+export type NestMinioOptions = ClientOptions;
