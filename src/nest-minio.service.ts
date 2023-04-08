@@ -1,7 +1,7 @@
-import { Injectable, Inject, Logger } from '@nestjs/common';
-import { NestMinioOptions } from './nest-minio.options';
-import * as Minio from 'minio';
+import { Inject, Injectable } from '@nestjs/common';
+import * as minio from 'minio';
 import { MODULE_OPTIONS_TOKEN } from './nest-minio.module-definition';
+import { NestMinioOptions } from './nest-minio.options';
 
 interface INestMinioService {
 	getMinio();
@@ -9,14 +9,14 @@ interface INestMinioService {
 
 @Injectable()
 export class NestMinioService implements INestMinioService {
-	private _minioConnection: any;
+	private _minioConnection: minio.Client;
 	constructor(
 		@Inject(MODULE_OPTIONS_TOKEN) private _NestMinioOptions: NestMinioOptions,
 	) {}
 
-	getMinio(): Minio.Client {
+	getMinio(): minio.Client {
 		if (!this._minioConnection) {
-			this._minioConnection = new Minio.Client(this._NestMinioOptions);
+			this._minioConnection = new minio.Client(this._NestMinioOptions);
 		}
 		return this._minioConnection;
 	}
