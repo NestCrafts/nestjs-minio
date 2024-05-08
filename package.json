@@ -13,7 +13,8 @@
 		"test": "jest",
 		"test:watch": "jest --watch",
 		"test:cov": "jest --coverage",
-		"test:e2e": "jest --config ./test/jest-e2e.json",
+		"test:e2e": "jest --config ./tests/jest-e2e.json --runInBand",
+    "test:e2e:dev": "jest --config ./tests/jest-e2e.json --runInBand --watch",
 		"build:docs": "npx compodoc -p tsconfig.build.json -d docs -o -s --theme material"
 	},
 	"keywords": [
