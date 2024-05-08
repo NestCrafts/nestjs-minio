@@ -22,7 +22,7 @@ jobs:
       - checkout
       - run:
           name: Update NPM version
-          command: sudo npm install -g npm@latest --ignore-scripts
+          command: sudo npm install -g npm@latest
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
@@ -49,10 +49,10 @@ jobs:
       - run:
           name: Upgrade Node.js
           command: |
-            nvm install v16
+            nvm install v18
             node -v
-            nvm alias default v16
-            npm i -g pnpm
+            nvm alias default v18
+
       - run:
           name: Install Docker Compose
           command: |
