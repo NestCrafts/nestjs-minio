@@ -52,6 +52,7 @@ jobs:
             nvm install v16
             node -v
             nvm alias default v16
+            npm i -g pnpm
       - run:
           name: Install Docker Compose
           command: |
