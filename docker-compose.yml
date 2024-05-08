@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  minio:
+    image: minio/minio:latest
+    ports:
+      - "9000:9000"
+    volumes:
+      - minio_data:/data
+    environment:
+      MINIO_ROOT_USER: "test"
+      MINIO_ROOT_PASSWORD: "test1234"
+    command: server /data
+    networks:
+      - minio-net
+
+networks:
+  minio-net:
+
+volumes:
+  minio_data:
