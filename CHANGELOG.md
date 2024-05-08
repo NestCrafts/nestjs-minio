@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.7.0](https://github.com/rubiin/nestjs-minio/compare/v2.6.0...v2.7.0) (2024-05-08)
+
+
+### Features
+
+* retry and retry delay ([20cb3ea](https://github.com/rubiin/nestjs-minio/commit/20cb3ead26509364b80cc331b1cb8c9e0146ad93))
+* retry and retry delay ([679aae6](https://github.com/rubiin/nestjs-minio/commit/679aae666f7841404678abfc5ea2e94e0e8ee740))
+
 ## [2.6.0](https://github.com/rubiin/nestjs-minio/compare/v2.5.4...v2.6.0) (2024-05-03)
 
 
