@@ -8,7 +8,7 @@ import { AppController } from "./app.controller";
       {
       endPoint: 'localhost',
       port: 9000,
-      useSSL: true,
+      useSSL: false,
       accessKey: 'test',
       secretKey: 'test1234',
     }),
