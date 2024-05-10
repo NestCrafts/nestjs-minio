@@ -1,12 +1,16 @@
 {
 	"name": "nestjs-minio",
-	"version": "2.5.4",
+	"version": "2.6.1",
 	"description": "Minio object storage with nestjs",
 	"author": "Rubin Bhandari",
 	"license": "MIT",
-	"main": "dist/index.js",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"files": [
+	  "dist"
+	],
 	"scripts": {
-		"build": "tsc",
+		"build": "npx rimraf dist && tsc -p tsconfig.build.json",
 		"prepare": "npm run build",
 		"format": "prettier --write \"src/**/*.ts\"",
 		"lint": "eslint '{src,test}/**/*.ts' --cache --fix",
@@ -14,7 +18,7 @@
 		"test:watch": "jest --watch",
 		"test:cov": "jest --coverage",
 		"test:e2e": "jest --config ./tests/jest-e2e.json --runInBand",
-    "test:e2e:dev": "jest --config ./tests/jest-e2e.json --runInBand --watch",
+   	    "test:e2e:dev": "jest --config ./tests/jest-e2e.json --runInBand --watch",
 		"build:docs": "npx compodoc -p tsconfig.build.json -d docs -o -s --theme material"
 	},
 	"keywords": [
@@ -39,7 +43,6 @@
 		"@nestjs/testing": "10.3.8",
 		"@types/express": "4.17.21",
 		"@types/jest": "29.5.12",
-		"@types/minio": "^7.1.1",
 		"@types/supertest": "6.0.2",
 		"@typescript-eslint/eslint-plugin": "^7.8.0",
 		"@typescript-eslint/parser": "7.8.0",

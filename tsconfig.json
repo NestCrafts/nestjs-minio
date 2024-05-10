@@ -2,15 +2,16 @@
   "compilerOptions": {
     "module": "commonjs",
     "declaration": true,
-    "noImplicitAny": false,
     "removeComments": true,
-    "noLib": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "ES2021",
-    "sourceMap": false,
     "skipLibCheck": true,
-    "strict": true,
-    "strictPropertyInitialization": false
-  }
+    "target": "es2021",
+    "sourceMap": false,
+    "baseUrl": "./",
+    "incremental": true,
+    "newLine":"lf"
+  },
+  "include": ["**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }
