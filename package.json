@@ -88,5 +88,12 @@
 		"commitizen": {
 			"path": "./node_modules/cz-conventional-changelog"
 		}
-	}
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/NestCrafts/nestjs-minio.git"
+	},
+	"bugs": {
+		"url": "https://github.com/NestCrafts/nestjs-minio/issues"
+	  }
 }
