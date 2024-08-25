@@ -7,7 +7,7 @@
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"files": [
-	  "dist"
+		"dist"
 	],
 	"scripts": {
 		"build": "npx rimraf dist && tsc -p tsconfig.build.json",
@@ -18,7 +18,7 @@
 		"test:watch": "jest --watch",
 		"test:cov": "jest --coverage",
 		"test:e2e": "jest --config ./tests/jest-e2e.json --runInBand",
-   	    "test:e2e:dev": "jest --config ./tests/jest-e2e.json --runInBand --watch",
+		"test:e2e:dev": "jest --config ./tests/jest-e2e.json --runInBand --watch",
 		"build:docs": "npx compodoc -p tsconfig.build.json -d docs -o -s --theme material"
 	},
 	"keywords": [
@@ -33,26 +33,26 @@
 		"@nestjs/core": ">7.0.0"
 	},
 	"dependencies": {
-		"minio": "^8.0.0"
+		"minio": "^8.0.1"
 	},
 	"devDependencies": {
-		"@compodoc/compodoc": "^1.1.24",
-		"@nestjs/common": "^10.3.8",
-		"@nestjs/core": "^10.3.8",
-		"@nestjs/platform-express": "^10.3.8",
+		"@compodoc/compodoc": "^1.1.25",
+		"@nestjs/common": "^10.4.1",
+		"@nestjs/core": "^10.4.1",
+		"@nestjs/platform-express": "^10.4.1",
 		"@nestjs/testing": "10.3.8",
 		"@types/express": "4.17.21",
 		"@types/jest": "29.5.12",
 		"@types/supertest": "6.0.2",
-		"@typescript-eslint/eslint-plugin": "^7.8.0",
+		"@typescript-eslint/eslint-plugin": "^7.18.0",
 		"@typescript-eslint/parser": "7.8.0",
 		"cz-conventional-changelog": "3.3.0",
-		"eslint": "^9.2.0",
+		"eslint": "^9.9.1",
 		"eslint-plugin-import": "2.29.1",
-		"husky": "^9.0.11",
+		"husky": "^9.1.5",
 		"jest": "29.7.0",
-		"lint-staged": "^15.2.2",
-		"prettier": "^3.2.5",
+		"lint-staged": "^15.2.9",
+		"prettier": "^3.3.3",
 		"reflect-metadata": "^0.2.2",
 		"rxjs": "^7.8.1",
 		"supertest": "7.0.0",
@@ -95,5 +95,5 @@
 	},
 	"bugs": {
 		"url": "https://github.com/NestCrafts/nestjs-minio/issues"
-	  }
+	}
 }
