@@ -56,9 +56,8 @@ import { NestMinioModule } from '../nest-minio.module';
 @Module({
   controllers: [NestMinioClientController],
   imports: [
-    NestMinioModule.register(
+    NestMinioModule.register({
       isGlobal: true,
-      {
       endPoint: 'play.min.io',
       port: 9000,
       useSSL: true,
