@@ -26,17 +26,13 @@ export class NestMinioService implements INestMinioService {
 		return this._minioConnection;
 	}
 
-	checkConnection() {
-		const { retries = 5, retryDelay = 1000 } = this.nestMinioOptions
+	async checkConnection(): Promise<void> {
+		const { retries = 5, retryDelay = 1000 } = this.nestMinioOptions;
 
-		lastValueFrom(from(this._minioConnection.listBuckets()).pipe(
+		await lastValueFrom(from(this._minioConnection.listBuckets()).pipe(
 			retry({ count: retries, delay: retryDelay })
-		))
-			.then(() => {
-				this.logger.log("Successfully connected to minio.")
-			})
-			.catch(error => {
-				this.logger.error(error)
-			})
+		));
+
+		this.logger.log("Successfully connected to minio.")
 	}
 }

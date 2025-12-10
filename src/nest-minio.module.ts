@@ -11,7 +11,7 @@ export class NestMinioModule extends ConfigurableModuleClass implements OnModule
 	constructor(readonly service: NestMinioService){
 		super();
 	}
-	onModuleInit() {
-		this.service.checkConnection()
+	async onModuleInit(): Promise<void> {
+		await this.service.checkConnection();
 	}
 }
