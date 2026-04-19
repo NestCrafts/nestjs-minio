@@ -3,14 +3,19 @@
   "compilerOptions": {
     "sourceMap": false,
     "newLine": "lf",
-    "module": "nodenext",
-    "rootDir": "./src" // no longer inferred from source files (see §1.5)
+    "module": "node16",
+    "moduleResolution": "node16",
+    "target": "ES2020",
+    "lib": ["ES2020"],
+    "declaration": true,
+    "declarationMap": true,
+    "rootDir": "./src",
   },
   "include": [
     "src/**/*"
   ],
   "exclude": [
     "node_modules",
-    "**/*.spec.ts"
+    "tests/*.spec.ts"
   ]
 }

@@ -4,15 +4,24 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20, 22, 24]
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+
+      - uses: pnpm/action-setup@v6
         with:
-          node-version: 20
-          check-latest: true
-          registry-url: https://registry.npmjs.org/
-      - run: npm install --legacy-peer-deps
-      - run: npm run build
+          version: 10.33.0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: pnpm
+
+      - run: pnpm install --shamefully-hoist=true
+      - run: pnpm run lint && pnpm run build
       
   release:
     name: release
