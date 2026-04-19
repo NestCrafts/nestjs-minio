@@ -1,6 +1,6 @@
 {
 	"name": "nestjs-minio",
-	"version": "2.7.0",
+	"version": "2.7.1",
 	"description": "Minio object storage with nestjs",
 	"author": "Rubin Bhandari",
 	"license": "MIT",
@@ -11,7 +11,7 @@
 	],
 	"scripts": {
 		"build": "npx rimraf dist && tsc -p tsconfig.build.json",
-		"prepare": "npm run build",
+		"prepack": "npm run build",
 		"format": "oxfmt",
 		"format:check": "oxfmt --check **/*.ts",
 		"lint": "oxlint",
