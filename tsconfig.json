@@ -5,7 +5,7 @@
 		"newLine": "lf",
 		"module": "nodenext",
 		"types": ["node"], // @types are no longer auto-discovered (see §1.6)
-		"rootDir": "." // no longer inferred from source files (see §1.5)
+		"rootDir": "./src" // no longer inferred from source files (see §1.5)
 	},
 	"include": ["src/**/*"],
 	"exclude": ["node_modules", "**/*.spec.ts"]
