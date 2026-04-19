@@ -4,7 +4,6 @@
 *.js
 *.d.ts
 .eslintcache
-tsconfig.tsbuildinfo
 # Logs
 logs
 *.log
@@ -12,7 +11,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
-*.tsbuildinfo
 
 # OS
 .DS_Store
@@ -29,6 +27,8 @@ lerna-debug.log*
 *.launch
 .settings/
 *.sublime-workspace
+
+*.tsbuildinfo
 
 # IDE - VSCode
 .vscode/*
