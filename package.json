@@ -10,7 +10,7 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "npx rimraf dist && tsc -p tsconfig.build.json",
+		"build": "npx rimraf dist tsconfig.build.tsbuildinfo && tsc -p tsconfig.build.json",
 		"prepack": "npm run build",
 		"format": "oxfmt",
 		"format:check": "oxfmt --check **/*.ts",
