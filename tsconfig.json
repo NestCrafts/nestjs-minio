@@ -1,17 +1,16 @@
 {
+  "extends": "@rubiin/tsconfig",
   "compilerOptions": {
-    "module": "commonjs",
-    "declaration": true,
-    "removeComments": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "skipLibCheck": true,
-    "target": "es2021",
     "sourceMap": false,
-    "baseUrl": "./",
-    "incremental": true,
-    "newLine":"lf"
+    "newLine": "lf",
+    "module": "nodenext",
+    "rootDir": "./src" // no longer inferred from source files (see §1.5)
   },
-  "include": ["**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
 }

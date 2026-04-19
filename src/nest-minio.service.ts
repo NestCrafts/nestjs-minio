@@ -10,7 +10,7 @@ interface INestMinioService {
 
 @Injectable()
 export class NestMinioService implements INestMinioService {
-	private _minioConnection: minio.Client;
+	private _minioConnection: minio.Client | undefined;
 
 	private readonly logger = new Logger(NestMinioService.name);
 
@@ -20,7 +20,7 @@ export class NestMinioService implements INestMinioService {
 
 	getMinio(): minio.Client {
 		if (!this._minioConnection) {
-			const { retries, ...options } = this.nestMinioOptions;
+			const options= this.nestMinioOptions;
 			this._minioConnection = new minio.Client(options);
 		}
 		return this._minioConnection;
@@ -29,7 +29,7 @@ export class NestMinioService implements INestMinioService {
 	async checkConnection(): Promise<void> {
 		const { retries = 5, retryDelay = 1000 } = this.nestMinioOptions;
 
-		await lastValueFrom(from(this._minioConnection.listBuckets()).pipe(
+		await lastValueFrom(from(this._minioConnection!.listBuckets()).pipe(
 			retry({ count: retries, delay: retryDelay })
 		));
 

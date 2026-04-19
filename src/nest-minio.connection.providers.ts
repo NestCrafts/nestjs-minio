@@ -4,7 +4,7 @@ export const MINIO_CONNECTION = 'MINIO_CONNECTION';
 
 export const connectionFactory = {
 	provide: MINIO_CONNECTION,
-	useFactory: async nestMinioService => {
+	useFactory: async (nestMinioService: { getMinio: () => any; }) => {
 		return nestMinioService.getMinio();
 	},
 	inject: [NestMinioService],
