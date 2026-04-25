@@ -12,19 +12,17 @@
 
 </p>
 
-
 <p align="center">
 <a href="https://www.buymeacoffee.com/XbgWxt567" target="_blank"><img src="https://i.imgur.com/CahshSS.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
 </p>
 
-
 ## Description
+
 This's a [nest-minio](https://github.com/rubiin/nest-minio) module for [Nest](https://github.com/nestjs/nest).
 This quickstart guide will show you how to install the client SDK and execute an example JavaScript program. For a complete list of APIs and examples, please take a look at the [JavaScript Client API Reference](https://docs.min.io/docs/javascript-client-api-reference) documentation.
 
 This document assumes that you have a working [nodejs](http://nodejs.org/) setup in place.
-
 
 ## Installation
 
@@ -32,19 +30,17 @@ This document assumes that you have a working [nodejs](http://nodejs.org/) setup
 $ npm i --save nestjs-minio
 ```
 
-
 ## Initialize MinIO Client
 
 You need five items in order to connect to MinIO object storage server.
 
-
-| Params     | Description |
-| :------- | :------------ |
-| endPoint	 | URL to object storage service. |
-|port| TCP/IP port number. This input is optional. Default value set to ``80`` for HTTP and ``443`` for HTTPs.|
-| accessKey | Access key is like user ID that uniquely identifies your account.   |
-| secretKey	| Secret key is the password to your account.    |
-|useSSL |Set this value to 'true' to enable secure (HTTPS) access |
+| Params    | Description                                                                                         |
+| :-------- | :-------------------------------------------------------------------------------------------------- |
+| endPoint  | URL to object storage service.                                                                      |
+| port      | TCP/IP port number. This input is optional. Default value set to `80` for HTTP and `443` for HTTPs. |
+| accessKey | Access key is like user ID that uniquely identifies your account.                                   |
+| secretKey | Secret key is the password to your account.                                                         |
+| useSSL    | Set this value to 'true' to enable secure (HTTPS) access                                            |
 
 Provide the credentials for minio module by importing it as :
 
@@ -54,21 +50,21 @@ import { NestMinioClientController } from './nest-minio-client.controller';
 import { NestMinioModule } from '../nest-minio.module';
 
 @Module({
-  controllers: [NestMinioClientController],
-  imports: [
-    NestMinioModule.register({
-      isGlobal: true,
-      endPoint: 'play.min.io',
-      port: 9000,
-      useSSL: true,
-      accessKey: 'Q3AM3UQ867SPQQA43P2F',
-      secretKey: 'zuf+tfteSlswRu7BJ86wekitnifILbZam1KYY3TG',
-    }),
-  ],
+	controllers: [NestMinioClientController],
+	imports: [
+		NestMinioModule.register({
+			isGlobal: true,
+			endPoint: 'play.min.io',
+			port: 9000,
+			useSSL: true,
+			accessKey: 'Q3AM3UQ867SPQQA43P2F',
+			secretKey: 'zuf+tfteSlswRu7BJ86wekitnifILbZam1KYY3TG',
+		}),
+	],
 })
 export class NestMinioClientModule {}
-
 ```
+
 Then you can use it in the controller or service by injecting it in the controller as:
 
 ```javascript
@@ -77,7 +73,29 @@ Then you can use it in the controller or service by injecting it in the controll
 
 ```
 
+## Connection Teardown
+
+`NestMinioService` exposes manual teardown methods so applications can proactively close MinIO connections during graceful shutdown:
+
+```typescript
+import { Injectable } from '@nestjs/common';
+import { NestMinioService } from 'nestjs-minio';
+
+@Injectable()
+export class ShutdownService {
+  constructor(private readonly minioService: NestMinioService) {}
+
+  async closeMinio(): Promise<void> {
+    await this.minioService.disconnect();
+    // Aliases: close() and destroy()
+  }
+}
+```
+
+The module also performs this cleanup automatically on application shutdown.
+
 ## Quick Start Example - File Uploader
+
 This example program connects to an object storage server, makes a bucket on the server and then uploads a file to the bucket.
 
 We will use the MinIO server running at https://play.min.io in this example. Feel free to use this service for testing and development. Access credentials shown in this example are open to the public.
