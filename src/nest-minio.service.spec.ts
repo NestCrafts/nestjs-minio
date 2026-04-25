@@ -55,4 +55,17 @@ describe('NestMinioService', () => {
 
 		expect(disconnectSpy).toHaveBeenCalledTimes(2);
 	});
+
+	it('should retry checkConnection with fresh listBuckets calls', async () => {
+		const service = new NestMinioService({ retries: 2, retryDelay: 0 } as never);
+		const listBuckets = jest
+			.fn<() => Promise<unknown[]>>()
+			.mockRejectedValueOnce(new Error('first'))
+			.mockRejectedValueOnce(new Error('second'))
+			.mockResolvedValueOnce([]);
+		jest.spyOn(service, 'getMinio').mockReturnValue({ listBuckets } as any);
+
+		await expect(service.checkConnection()).resolves.toBeUndefined();
+		expect(listBuckets).toHaveBeenCalledTimes(3);
+	});
 });
