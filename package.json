@@ -43,7 +43,7 @@
 	"devDependencies": {
 		"@nestjs/common": "^11.1.19",
 		"@nestjs/core": "^11.1.19",
-		"@nestjs/testing": "10.3.8",
+		"@nestjs/testing": "^11.1.19",
 		"@rubiin/tsconfig": "^2.1.0",
 		"@types/express": "4.17.21",
 		"@types/jest": "29.5.12",

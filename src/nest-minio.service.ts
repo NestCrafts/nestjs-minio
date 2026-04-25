@@ -2,7 +2,7 @@ import { Inject, Injectable, Logger } from '@nestjs/common';
 import {Client} from 'minio';
 import { MODULE_OPTIONS_TOKEN } from './nest-minio.module-definition';
 import { NestMinioOptions } from './nest-minio.options';
-import { from, lastValueFrom, retry } from 'rxjs';
+import { defer, from, lastValueFrom, retry } from 'rxjs';
 
 interface INestMinioService {
 	getMinio(): Client;
@@ -29,9 +29,10 @@ export class NestMinioService implements INestMinioService {
 
 	async checkConnection(): Promise<void> {
 		const { retries = 5, retryDelay = 1000 } = this.nestMinioOptions;
+		const client = this.getMinio();
 
 		await lastValueFrom(
-			from(this._minioConnection!.listBuckets()).pipe(retry({ count: retries, delay: retryDelay })),
+			defer(() => from(client.listBuckets())).pipe(retry({ count: retries, delay: retryDelay })),
 		);
 
 		this.logger.log('Successfully connected to minio.');
