@@ -94,6 +94,7 @@
 			"^.+\\.(t|j)s$": [
 				"ts-jest",
 				{
+					"tsconfig": "<rootDir>/../tsconfig.spec.json",
 					"diagnostics": {
 						"ignoreCodes": [
 							151002
