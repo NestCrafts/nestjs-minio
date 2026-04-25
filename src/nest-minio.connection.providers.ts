@@ -2,10 +2,20 @@ import { NestMinioService } from './nest-minio.service';
 
 export const MINIO_CONNECTION = 'MINIO_CONNECTION';
 
-export const connectionFactory = {
-	provide: MINIO_CONNECTION,
-	useFactory: async (nestMinioService: { getMinio: () => any }) => {
-		return nestMinioService.getMinio();
-	},
-	inject: [NestMinioService],
-};
+export function getMinioConnectionToken(name?: string): string {
+	if (!name) {
+		return MINIO_CONNECTION;
+	}
+
+	return `${MINIO_CONNECTION}_${name}`;
+}
+
+export function createConnectionProvider(name?: string) {
+	return {
+		provide: getMinioConnectionToken(name),
+		useFactory: async (nestMinioService: { getMinio: () => any }) => {
+			return nestMinioService.getMinio();
+		},
+		inject: [NestMinioService],
+	};
+}

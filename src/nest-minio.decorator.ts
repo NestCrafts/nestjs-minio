@@ -1,6 +1,6 @@
 import { Inject } from '@nestjs/common';
-import { MINIO_CONNECTION } from './nest-minio.connection.providers';
+import { getMinioConnectionToken } from './nest-minio.connection.providers';
 
-export function InjectMinio() {
-	return Inject(MINIO_CONNECTION);
+export function InjectMinio(name?: string) {
+	return Inject(getMinioConnectionToken(name));
 }

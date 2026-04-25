@@ -73,6 +73,53 @@ Then you can use it in the controller or service by injecting it in the controll
 
 ```
 
+## Multiple Clients In One Module
+
+You can register multiple MinIO clients by importing `NestMinioModule.register(...)` multiple times and assigning a unique `name` to each client.
+
+```typescript
+import { Module } from '@nestjs/common';
+import { NestMinioModule } from 'nestjs-minio';
+
+@Module({
+  imports: [
+    NestMinioModule.register({
+      name: 'uploads',
+      endPoint: 'localhost',
+      port: 9000,
+      useSSL: false,
+      accessKey: 'test',
+      secretKey: 'test1234',
+    }),
+    NestMinioModule.register({
+      name: 'archive',
+      endPoint: 'localhost',
+      port: 9001,
+      useSSL: false,
+      accessKey: 'archive-user',
+      secretKey: 'archive-pass',
+    }),
+  ],
+})
+export class StorageModule {}
+```
+
+Inject named clients using the decorator:
+
+```typescript
+import { Controller } from '@nestjs/common';
+import { Client } from 'minio';
+import { InjectMinio } from 'nestjs-minio';
+
+@Controller()
+export class FilesController {
+  constructor(
+    @InjectMinio('uploads') private readonly uploadsClient: Client,
+    @InjectMinio('archive') private readonly archiveClient: Client,
+  ) {}
+}
+```
+
 ## Connection Teardown
 
 `NestMinioService` exposes manual teardown methods so applications can proactively close MinIO connections during graceful shutdown:
