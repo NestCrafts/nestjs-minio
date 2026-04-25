@@ -2,13 +2,27 @@
 	"name": "nestjs-minio",
 	"version": "2.7.6",
 	"description": "Minio object storage with nestjs",
-	"author": "Rubin Bhandari",
+	"keywords": [
+		"minio",
+		"nestjs"
+	],
+	"bugs": {
+		"url": "https://github.com/NestCrafts/nestjs-minio/issues"
+	},
 	"license": "MIT",
-	"main": "./dist/index.js",
-	"types": "./dist/index.d.ts",
+	"author": "Rubin Bhandari",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/NestCrafts/nestjs-minio.git"
+	},
 	"files": [
 		"dist"
 	],
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"publishConfig": {
+		"access": "public"
+	},
 	"scripts": {
 		"build": "npx rimraf dist tsconfig.build.tsbuildinfo && tsc -p tsconfig.build.json",
 		"prepack": "npm run build",
@@ -23,26 +37,14 @@
 		"test:e2e:dev": "jest --config ./tests/jest-e2e.json --runInBand --watch",
 		"build:docs": "npx compodoc -p tsconfig.build.json -d docs -o -s --theme material"
 	},
-	"keywords": [
-		"nestjs",
-		"minio"
-	],
-	"publishConfig": {
-		"access": "public"
-	},
-	"peerDependencies": {
-		"@nestjs/common": ">7.0.0",
-		"@nestjs/core": ">7.0.0"
-	},
 	"dependencies": {
 		"minio": "^8.0.7"
 	},
 	"devDependencies": {
-		"@compodoc/compodoc": "^1.2.1",
 		"@nestjs/common": "^11.1.19",
 		"@nestjs/core": "^11.1.19",
 		"@nestjs/testing": "10.3.8",
-		"@rubiin/tsconfig": "^2.0.1",
+		"@rubiin/tsconfig": "^2.1.0",
 		"@types/express": "4.17.21",
 		"@types/jest": "29.5.12",
 		"@types/supertest": "6.0.2",
@@ -50,8 +52,8 @@
 		"husky": "^9.1.7",
 		"jest": "^30.3.0",
 		"lint-staged": "^16.4.0",
-		"oxfmt": "^0.45.0",
-		"oxlint": "^1.60.0",
+		"oxfmt": "^0.46.0",
+		"oxlint": "^1.61.0",
 		"reflect-metadata": "^0.2.2",
 		"rxjs": "^7.8.2",
 		"supertest": "^7.2.2",
@@ -60,19 +62,9 @@
 		"tsconfig-paths": "^4.2.0",
 		"typescript": "^6.0.3"
 	},
-	"jest": {
-		"moduleFileExtensions": [
-			"js",
-			"json",
-			"ts"
-		],
-		"rootDir": "src",
-		"testRegex": ".spec.ts$",
-		"transform": {
-			"^.+\\.(t|j)s$": "ts-jest"
-		},
-		"coverageDirectory": "../coverage",
-		"testEnvironment": "node"
+	"peerDependencies": {
+		"@nestjs/common": ">7.0.0",
+		"@nestjs/core": ">7.0.0"
 	},
 	"lint-staged": {
 		"*.{js,jsx,ts,tsx}": [
@@ -88,11 +80,28 @@
 			"path": "./node_modules/cz-conventional-changelog"
 		}
 	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/NestCrafts/nestjs-minio.git"
-	},
-	"bugs": {
-		"url": "https://github.com/NestCrafts/nestjs-minio/issues"
+	"jest": {
+		"coverageDirectory": "../coverage",
+		"moduleFileExtensions": [
+			"js",
+			"json",
+			"ts"
+		],
+		"rootDir": "src",
+		"testEnvironment": "node",
+		"testRegex": ".spec.ts$",
+		"transform": {
+			"^.+\\.(t|j)s$": [
+				"ts-jest",
+				{
+					"tsconfig": "<rootDir>/../tsconfig.spec.json",
+					"diagnostics": {
+						"ignoreCodes": [
+							151002
+						]
+					}
+				}
+			]
+		}
 	}
 }

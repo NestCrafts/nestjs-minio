@@ -13,7 +13,7 @@ jobs:
 
       - uses: pnpm/action-setup@v6
         with:
-          version: 10.33.0
+          version: 10
 
       - uses: actions/setup-node@v6
         with:
@@ -21,8 +21,10 @@ jobs:
           cache: pnpm
 
       - run: pnpm install --shamefully-hoist=true
-      - run: pnpm run lint && pnpm run build
-      
+      - run: pnpm run lint
+      - run: pnpm run build
+      - run: pnpm run test
+
   release:
     name: release
     if: ${{ github.ref == 'refs/heads/master' }}
