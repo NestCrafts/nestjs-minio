@@ -1,6 +1,6 @@
 {
 	"name": "nestjs-minio",
-	"version": "2.7.6",
+	"version": "2.8.0",
 	"description": "Minio object storage with nestjs",
 	"keywords": [
 		"minio",
