@@ -1,25 +1,43 @@
-name: NPM Publish
+name: Release
+
 on:
-  release:
-    types: [created]
+  push:
+    tags:
+      - "v*"
+
 jobs:
-  publish:
-    runs-on: ubuntu-22.04
+  release:
     permissions:
-      contents: read
       id-token: write
+      contents: write
+    runs-on: ubuntu-latest
     steps:
-      - name: Setup Node.js 20
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
         with:
-          node-version: 20
-          check-latest: true
-          registry-url: https://registry.npmjs.org/
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Set node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24.x
+          cache: pnpm
+          registry-url: "https://registry.npmjs.org"
+
+      - run: npx changelogithub
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
       - name: Install Dependencies
-        run: npm install
-      - name: Publish Package to NPM Registry
-        run: npm publish
+        run: pnpm install --shamefully-hoist
+
+      - name: PNPM build
+        run: pnpm run build
+
+      - name: Publish to NPM
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NPM_CONFIG_PROVENANCE: true
