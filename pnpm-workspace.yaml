@@ -10,3 +10,7 @@ ignoreWorkspaceRootCheck: true
 shellEmulator: true
 
 trustPolicy: no-downgrade
+trustPolicyExclude:
+  - semver # Excludes all versions
+allowBuilds:
+  unrs-resolver: false

@@ -1,5 +1,5 @@
 {
-  "extends": "@rubiin/tsconfig/tsconfig.json",
+  "extends": "@rubiin/tsconfig/configs/tsconfig.nest.json",
   "compilerOptions": {
     "declaration": true,
     "declarationMap": true,
