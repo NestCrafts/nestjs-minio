@@ -1,6 +1,5 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="http://kamilmysliwiec.com/public/nest-logo.png#1" alt="Nest Logo" />   </a>
-  <a href="https://min.io" target="_blank"><img src="https://min.io/resources/img/logo.svg" width="380"></a>
+  <a href="http://nestjs.com/" target="blank"><img width="350" height="250" alt="nestjs-cloudinary" src="https://github.com/user-attachments/assets/89f6d121-4d54-4fe1-b193-f747b72f8883" alt="Nest Logo" />   </a>
 </p>
 
 <p align="center">Minio Module for Nest framework</p>
