@@ -1,71 +1,71 @@
-import { describe, expect, it, jest } from '@jest/globals';
+import { describe, expect, it, vi } from 'vitest';
 import { NestMinioService } from './nest-minio.service';
 
 describe('NestMinioService', () => {
-	it('should not throw when disconnect is called before initialization', async () => {
-		const service = new NestMinioService({} as never);
+  it('should not throw when disconnect is called before initialization', async () => {
+    const service = new NestMinioService({} as never);
 
-		await expect(service.disconnect()).resolves.toBeUndefined();
-	});
+    await expect(service.disconnect()).resolves.toBeUndefined();
+  });
 
-	it('should call close when client exposes close', async () => {
-		const service = new NestMinioService({} as never);
-		const close = jest.fn();
-		(service as any)._minioConnection = { close };
+  it('should call close when client exposes close', async () => {
+    const service = new NestMinioService({} as never);
+    const close = vi.fn();
+    (service as any)._minioConnection = { close };
 
-		await service.disconnect();
+    await service.disconnect();
 
-		expect(close).toHaveBeenCalledTimes(1);
-		expect((service as any)._minioConnection).toBeUndefined();
-	});
+    expect(close).toHaveBeenCalledTimes(1);
+    expect((service as any)._minioConnection).toBeUndefined();
+  });
 
-	it('should fallback to destroy when close is unavailable', async () => {
-		const service = new NestMinioService({} as never);
-		const destroy = jest.fn();
-		(service as any)._minioConnection = { destroy };
+  it('should fallback to destroy when close is unavailable', async () => {
+    const service = new NestMinioService({} as never);
+    const destroy = vi.fn();
+    (service as any)._minioConnection = { destroy };
 
-		await service.disconnect();
+    await service.disconnect();
 
-		expect(destroy).toHaveBeenCalledTimes(1);
-		expect((service as any)._minioConnection).toBeUndefined();
-	});
+    expect(destroy).toHaveBeenCalledTimes(1);
+    expect((service as any)._minioConnection).toBeUndefined();
+  });
 
-	it('should destroy transport agents when close and destroy are unavailable', async () => {
-		const service = new NestMinioService({} as never);
-		const transportDestroy = jest.fn();
-		const anonymousTransportDestroy = jest.fn();
-		(service as any)._minioConnection = {
-			transportAgent: { destroy: transportDestroy },
-			anonymousTransportAgent: { destroy: anonymousTransportDestroy },
-		};
+  it('should destroy transport agents when close and destroy are unavailable', async () => {
+    const service = new NestMinioService({} as never);
+    const transportDestroy = vi.fn();
+    const anonymousTransportDestroy = vi.fn();
+    (service as any)._minioConnection = {
+      transportAgent: { destroy: transportDestroy },
+      anonymousTransportAgent: { destroy: anonymousTransportDestroy },
+    };
 
-		await service.disconnect();
+    await service.disconnect();
 
-		expect(transportDestroy).toHaveBeenCalledTimes(1);
-		expect(anonymousTransportDestroy).toHaveBeenCalledTimes(1);
-		expect((service as any)._minioConnection).toBeUndefined();
-	});
+    expect(transportDestroy).toHaveBeenCalledTimes(1);
+    expect(anonymousTransportDestroy).toHaveBeenCalledTimes(1);
+    expect((service as any)._minioConnection).toBeUndefined();
+  });
 
-	it('should expose close and destroy aliases', async () => {
-		const service = new NestMinioService({} as never);
-		const disconnectSpy = jest.spyOn(service, 'disconnect').mockResolvedValue();
+  it('should expose close and destroy aliases', async () => {
+    const service = new NestMinioService({} as never);
+    const disconnectSpy = vi.spyOn(service, 'disconnect').mockResolvedValue();
 
-		await service.close();
-		await service.destroy();
+    await service.close();
+    await service.destroy();
 
-		expect(disconnectSpy).toHaveBeenCalledTimes(2);
-	});
+    expect(disconnectSpy).toHaveBeenCalledTimes(2);
+  });
 
-	it('should retry checkConnection with fresh listBuckets calls', async () => {
-		const service = new NestMinioService({ retries: 2, retryDelay: 0 } as never);
-		const listBuckets = jest
-			.fn<() => Promise<unknown[]>>()
-			.mockRejectedValueOnce(new Error('first'))
-			.mockRejectedValueOnce(new Error('second'))
-			.mockResolvedValueOnce([]);
-		jest.spyOn(service, 'getMinio').mockReturnValue({ listBuckets } as any);
+  it('should retry checkConnection with fresh listBuckets calls', async () => {
+    const service = new NestMinioService({ retries: 2, retryDelay: 0 } as never);
+    const listBuckets = vi
+      .fn<() => Promise<unknown[]>>()
+      .mockRejectedValueOnce(new Error('first'))
+      .mockRejectedValueOnce(new Error('second'))
+      .mockResolvedValueOnce([]);
+    vi.spyOn(service, 'getMinio').mockReturnValue({ listBuckets } as any);
 
-		await expect(service.checkConnection()).resolves.toBeUndefined();
-		expect(listBuckets).toHaveBeenCalledTimes(3);
-	});
+    await expect(service.checkConnection()).resolves.toBeUndefined();
+    expect(listBuckets).toHaveBeenCalledTimes(3);
+  });
 });

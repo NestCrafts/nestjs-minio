@@ -1,19 +1,22 @@
-import {  Module, OnApplicationShutdown, OnModuleInit } from '@nestjs/common';
+import { Module, OnApplicationShutdown, OnModuleInit } from '@nestjs/common';
 import { NestMinioService } from './nest-minio.service';
-import {  ConfigurableModuleClass, } from './nest-minio.module-definition';
+import { ConfigurableModuleClass } from './nest-minio.module-definition';
 
 @Module({
-	providers: [NestMinioService],
-	exports: [NestMinioService],
+  providers: [NestMinioService],
+  exports: [NestMinioService],
 })
-export class NestMinioModule extends ConfigurableModuleClass implements OnModuleInit,OnApplicationShutdown {
-		constructor(readonly service: NestMinioService) {
-		super();
-	}
-	async onModuleInit(): Promise<void> {
-		await this.service.checkConnection();
-	}
-	async onApplicationShutdown(): Promise<void> {
-		await this.service.disconnect();
-	}
+export class NestMinioModule
+  extends ConfigurableModuleClass
+  implements OnModuleInit, OnApplicationShutdown
+{
+  constructor(readonly service: NestMinioService) {
+    super();
+  }
+  async onModuleInit(): Promise<void> {
+    await this.service.checkConnection();
+  }
+  async onApplicationShutdown(): Promise<void> {
+    await this.service.disconnect();
+  }
 }

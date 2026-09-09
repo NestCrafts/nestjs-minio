@@ -4,10 +4,10 @@ import { Client } from 'minio';
 
 @Controller('app')
 export class AppController {
-	constructor(@InjectMinio() private readonly minioClient: Client) {}
+  constructor(@InjectMinio() private readonly minioClient: Client) {}
 
-	@Get('buckets')
-	async getAll() {
-		return this.minioClient.listBuckets();
-	}
+  @Get('buckets')
+  async getAll() {
+    return this.minioClient.listBuckets();
+  }
 }
