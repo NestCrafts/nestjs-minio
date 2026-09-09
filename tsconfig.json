@@ -1,20 +1,16 @@
 {
-  "extends": "@rubiin/tsconfig/configs/tsconfig.nest.json",
-  "compilerOptions": {
-    "declaration": true,
-    "declarationMap": true,
-    "rootDir": "./src",
-    "module": "node16",
-    "moduleResolution": "node16",
-    "target": "es2022",
-    "types": ["node"],
-    "outDir": "./dist"
-  },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "tests/*.spec.ts"
-  ]
+	"extends": "@rubiin/tsconfig",
+	"compilerOptions": {
+		"sourceMap": true,
+		"newLine": "lf",
+		"module": "NodeNext",
+  		"moduleResolution": "NodeNext",
+		"lib": ["ES2022"],
+		"declaration": true,
+		"target": "ES2022",
+		"declarationMap": true,
+		"rootDir": "./src"
+	},
+	"include": ["src/**/*"],
+	"exclude": ["node_modules", "tests/*.spec.ts"]
 }
