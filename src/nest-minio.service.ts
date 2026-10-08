@@ -1,7 +1,7 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 import { Client } from 'minio';
 import { MODULE_OPTIONS_TOKEN } from './nest-minio.module-definition';
-import { NestMinioOptions } from './nest-minio.options';
+import type { NestMinioOptions } from './nest-minio.options';
 import { defer, from, lastValueFrom, retry } from 'rxjs';
 
 interface INestMinioService {
