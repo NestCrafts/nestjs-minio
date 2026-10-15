@@ -7,7 +7,7 @@
     "declaration": true,
     "target": "ES2022",
     "declarationMap": true,
-
+    "isolatedModules": false,
     "types": ["vitest/globals", "node"]
   },
   "include": ["src/**/*", "tests/**/*"],
